@@ -1,0 +1,9 @@
+public class Main {
+    public static void main(String[] args) {
+       
+        TicketOrderFacade ticketOrderFacade = new TicketOrderFacade();
+
+        List<Event> events = ticketOrderFacade.getEvents();
+        
+    }
+}
