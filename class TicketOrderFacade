@@ -1,0 +1,31 @@
+public class TicketOrderFacade {
+    private EventSelectionSystem eventSelectionSystem;
+    private SeatSelectionSystem seatSelectionSystem;
+    private PaymentProcessingSystem paymentProcessingSystem;
+
+    public TicketOrderFacade() {
+        eventSelectionSystem = new EventSelectionSystem();
+        seatSelectionSystem = new SeatSelectionSystem();
+        paymentProcessingSystem = new PaymentProcessingSystem();
+    }
+
+    public List<Event> getEvents() {
+        return eventSelectionSystem.getEvents();
+    }
+
+    public List<Seat> getSeats(Event event) {
+        return seatSelectionSystem.getSeats(event);
+    }
+
+    public boolean reserveSeat(Event event, Seat seat) {
+        return seatSelectionSystem.reserveSeat(event, seat);
+    }
+
+    public boolean releaseSeat(Event event, Seat seat) {
+        return seatSelectionSystem.releaseSeat(event, seat);
+    }
+
+    public boolean makePayment(PaymentInfo paymentInfo) {
+        return paymentProcessingSystem.makePayment(paymentInfo);
+    }
+}
